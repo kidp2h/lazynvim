@@ -1,4 +1,5 @@
 return {
+	['kyazdani42/nvim-web-devicons'] = {}
 	-- autoclose tags in html, jsx etc
 	["windwp/nvim-ts-autotag"] = {
 		ft = { "html", "javascriptreact" },
@@ -92,7 +93,11 @@ return {
 			require("custom.plugins.notify")
 		end,
 	},
-	["andweeb/presence.nvim"] = {},
+	["andweeb/presence.nvim"] = {
+		config = function()
+			require("custom.plugins.presence")
+		end,
+	},
 	["phaazon/hop.nvim"] = {
 		config = function()
 			require("hop").setup({})
@@ -106,6 +111,7 @@ return {
 	},
 	["SmiteshP/nvim-navic"] = {
 		requires = "neovim/nvim-lspconfig",
+		config = function() end,
 	},
 	["stevearc/dressing.nvim"] = {
 		config = function()
@@ -211,6 +217,10 @@ return {
 			vim.keymap.set("n", " ", function()
 				require("key-menu").open_window(" ")
 			end)
+
+			vim.keymap.set("n", "g", function()
+				require("key-menu").open_window("g")
+			end)
 		end,
 	},
 	["lvimuser/lsp-inlayhints.nvim"] = {
@@ -247,5 +257,16 @@ return {
 				debug_mode = false,
 			})
 		end,
+	},
+	["glepnir/galaxyline.nvim"] = {
+		branch = "main",
+		config = function()
+			require("custom.statusline")
+		end,
+	},
+	["mrjones2014/legendary.nvim"] = {
+		config = {
+			require("custom.plugins.legendary"),
+		},
 	},
 }
