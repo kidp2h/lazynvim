@@ -1,9 +1,11 @@
 # Install
 
 1. Install dependencies
- ```sh
+
+```sh
 npm install -g prettier eslint tree-sitter neovim
 ```
+
 3. Install nvim (Press enter if error):
 
 ```sh
